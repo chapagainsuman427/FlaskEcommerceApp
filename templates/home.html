@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Main banner section -->
+    <section class="hero-section text-center">
+        <h1 class="display-4">Welcome to My E-Commerce Store</h1>
+        <p class="lead">Your one-stop shop for all your needs. Discover our wide range of quality products today!</p>
+        <a href="/products" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+    </section>
+
+    <!-- Featured products or categories -->
+    <section class="mt-5">
+        <h2 class="mb-4">Featured Categories</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/images/laptop.jpg" class="card-img-top" alt="Category 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Electronics</h5>
+                        <p class="card-text">Explore the latest gadgets and tech accessories.</p>
+                        <a href="/products?category=electronics" class="btn btn-outline-primary">Shop Electronics</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/images/product4.jpg" class="card-img-top" alt="Category 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Fashion</h5>
+                        <p class="card-text">Discover trending fashion items and accessories.</p>
+                        <a href="/products?category=fashion" class="btn btn-outline-primary">Shop Fashion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="static/images/product8.jpg" class="card-img-top" alt="Category 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Home & Kitchen</h5>
+                        <p class="card-text">Find everything you need for a comfortable home.</p>
+                        <a href="/products?category=home-kitchen" class="btn btn-outline-primary">Shop Home & Kitchen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="mt-5">
+        <h2>About Us</h2>
+        <p>At My E-Commerce Store, we are committed to providing you with high-quality products at unbeatable prices. We offer a wide range of products in electronics, fashion, home, and more. Customer satisfaction is our top priority!</p>
+    </section>
+</div>
+{% endblock %}
