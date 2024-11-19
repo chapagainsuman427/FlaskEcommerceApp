@@ -4,6 +4,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 
+# Load environment variables from .env
 load_dotenv()
 
 # MongoDB connection class
@@ -11,13 +12,12 @@ class MongoDBTestBase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """
-        Load environment variables and set up MongoDB connection.
+        Set up MongoDB connection using the URI from environment variables.
         """
-        load_dotenv()
-        username = os.getenv('MONGODB_USERNAME')
-        password = os.getenv('MONGODB_PASSWORD')
-        cluster = os.getenv('MONGODB_CLUSTER')
-        cls.client = MongoClient(f"mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority")
+        mongodb_uri = os.getenv('MONGODB_URI')
+        if not mongodb_uri:
+            raise ValueError("MongoDB URI not found in environment variables.")
+        cls.client = MongoClient(mongodb_uri)
         cls.db = cls.client['shop_db']
         cls.collection = cls.db['products']
 

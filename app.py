@@ -6,13 +6,11 @@ import os
 # Load environment variables from .env
 load_dotenv()
 
-# MongoDB credentials from environment variables
-MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
-MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
-MONGODB_CLUSTER = os.getenv('MONGODB_CLUSTER')
+# MongoDB URI from environment variable
+MONGODB_URI = os.getenv("MONGODB_URI")
 
-# MongoDB Atlas connection
-client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@{MONGODB_CLUSTER}/?retryWrites=true&w=majority")
+# MongoDB connection
+client = MongoClient(MONGODB_URI)
 db = client['shop_db']
 products_collection = db['products']
 
